@@ -32,6 +32,49 @@
 
 <br>
 
+## 配置说明
+### config.env 文件变量说明
+
+#### 内核源码地址
+`KERNEL_SOURCE`：设置为你的内核仓库地址
+
+#### 内核源码分支
+`KERNEL_SOURCE_BRANCH`：设置为你的内核分支
+
+#### 内核编译配置
+`KERNEL_CONFIG`：设置为你的内核配置文件路径
+
+#### 内核打包名字
+`KERNEL_ZIP_NAME`：自定义打包后的内核文件名，支持英文数字
+
+#### 是否开启kvm
+`ENABLE_KVM`：百分之90的用户用不到kvm，默认false即可
+
+#### 是否开启lxc-docker
+`ENABLE_LXC_DOCKER`：需要开启LXC和Docker支持时设置为true
+
+#### 选择要打包的内核镜像文件
+`KERNEL_IMAGE_NAME`：
+- 低端机填Image.gz-dtb
+- 高端机可以选择Image.gz，Image
+
+#### 是否需要LLVM=1 LLVM_IAS=1参数
+`LLVM_CONFIG`：取决于你的内核源码，一般是需要的，需要填y，不需要填n
+
+#### 是否需要dtbo
+`NEED_DTBO`：一般不需要，默认false即可
+
+#### KernelSU 相关配置
+`ENABLE_KERNELSU`：需要KernelSU时设置为true，否则false
+`KERNELSU_TAG`：设置KernelSU的分支或标签，main分支为开发版本
+
+#### 其他配置
+- `CONFIG_BUILD_ARM64_KERNEL_COMPRESSION_GZIP=y`：启用ARM64内核GZIP压缩
+- `CONFIG_BUILD_ARM64_APPENDED_DTB_IMAGE=y`：启用附加DTB镜像
+- `CONFIG_BUILD_ARM64_DT_OVERLAY=y`：启用DT覆盖
+
+<br>
+
 ## 一些修复方法
 ### 关于k30pro内核源码和一加9R的los内核源码，编译完成后，不生成Image.gz和Image.gz-dtb文件
 ### 解决办法
